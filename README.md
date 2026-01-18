@@ -1,127 +1,140 @@
-# Project-on-Qlickview
-📊 Service Marketplace Analytics – QlikView Dashboard
-📌 Project Overview
+# 📊 Service Marketplace Analytics – QlikView Dashboard
 
-This project demonstrates the design and implementation of an end-to-end analytics solution built using a dimensional data model and visualized through QlikView.
+## 📌 Project Overview
+This project demonstrates the design and implementation of an **end-to-end analytics solution** built using a **dimensional data model** and visualized through **QlikView**.
 
-The solution analyzes service marketplace transactions and reviews, providing insights into buyer behavior, seller performance, service categories, revenue trends, and customer feedback.
+The solution analyzes **service marketplace transactions and reviews**, providing insights into:
+- Buyer behavior  
+- Seller performance  
+- Service categories  
+- Revenue trends  
+- Customer feedback  
 
-The backend follows a star schema design, optimized for analytical queries and BI reporting.
+The backend follows a **Star Schema (Fact–Dimension model)** optimized for analytical queries and BI reporting.
 
-🏗️ Data Model Architecture
+---
 
-The project uses a fact–dimension model consisting of:
+## 🏗️ Data Model Architecture
+The project uses a **fact–dimension model** consisting of the following tables:
 
-⭐ Fact Tables
+---
 
-fact_transaction
+## ⭐ Fact Tables
 
-Captures all service transactions
+### fact_transaction
+Captures all service transactions.
 
-Measures:
+**Measures & Attributes:**
+- ServiceCost  
+- PurchaseDate  
+- PaymentMethod  
 
-ServiceCost
+**Relationships:**
+- Linked to Buyer, Seller, Service, and Time dimensions
 
-PurchaseDate
+---
 
-PaymentMethod
+### fact_review
+Stores buyer reviews and ratings.
 
-Linked to Buyer, Seller, Service, and Time dimensions
+**Measures & Attributes:**
+- Rating  
+- ReviewDate  
+- ReviewComment  
 
-fact_review
+**Purpose:**
+- Enables both qualitative and quantitative performance analysis
 
-Stores buyer reviews and ratings
+---
 
-Measures:
+## 📐 Dimension Tables
 
-Rating
+### dim_service
+- Service category  
+- Price range  
+- Service description  
 
-ReviewDate
+### dim_buyer
+- Buyer profile  
+- Buyer location  
 
-ReviewComment
+### dim_seller
+- Seller profile  
+- Experience level  
+- Pricing range  
 
-Enables qualitative and quantitative performance analysis
+### dim_time
+- Date  
+- Day  
+- Month  
+- Quarter  
+- Year  
+- Weekday  
 
-📐 Dimension Tables
+This structure enables **fast slicing, filtering, and aggregation** in BI tools like QlikView.
 
-dim_service
+---
 
-Service details (category, price range, description)
+## 🧠 Dimensional Model Design (Star Schema)
+The data model follows a **Star Schema** design where:
 
-dim_buyer
+- Centralized **fact tables** store measurable business events  
+- Surrounding **dimension tables** provide descriptive business context  
 
-Buyer profile and location
+### Benefits:
+- High query performance  
+- Easy scalability  
+- Clear business interpretation  
+- BI-friendly structure  
 
-dim_seller
+---
 
-Seller profile, experience level, pricing range
+## 📊 QlikView Dashboard Features
+The QlikView dashboard built on this model provides the following insights:
 
-dim_time
+---
 
-Date hierarchy (day, month, quarter, year, weekday)
+## 🔹 Key KPIs
+- Total Revenue  
+- Number of Transactions  
+- Average Service Cost  
+- Average Ratings  
+- Total Reviews Count  
 
-This structure enables fast slicing, filtering, and aggregation in BI tools like QlikView.
+---
 
-🧠 Dimensional Model Design (Star Schema)
+## 🔹 Analytical Views
+- Revenue by Service Category  
+- Seller Performance Analysis  
+- Buyer Location Distribution  
+- Monthly & Yearly Transaction Trends  
+- Ratings vs Revenue Comparison  
+- Review Sentiment Overview (text-based insights)  
 
-Centralized fact tables store measurable business events
+---
 
-Surrounding dimension tables provide descriptive context
+## 🔹 Interactivity
+- Dynamic filters (Time, Category, Seller, Buyer)  
+- Cross-filtering between charts  
+- Drill-down analysis by date and category  
+- Real-time KPI updates  
 
-Ensures:
+---
 
-High query performance
+## 🛠️ Tools & Technologies
+- **Data Modeling:** MySQL Workbench  
+- **Visualization:** QlikView  
+- **Design Approach:** Dimensional Modeling (Star Schema)  
 
-Easy scalability
+---
 
-Clear business interpretation
+## 📌 Key Learnings
+- Designed a scalable analytical data model  
+- Implemented fact–dimension relationships for BI reporting  
+- Built interactive dashboards using QlikView  
+- Applied best practices in dimensional modeling  
 
-BI-friendly structure
+---
 
-📊 QlikView Dashboard Features
-
-The QlikView dashboard built on this model provides:
-
-🔹 Key KPIs
-
-Total Revenue
-
-Number of Transactions
-
-Average Service Cost
-
-Average Ratings
-
-Reviews Count
-
-🔹 Analytical Views
-
-Revenue by Service Category
-
-Seller Performance Analysis
-
-Buyer Location Distribution
-
-Monthly / Yearly Transaction Trends
-
-Ratings vs Revenue Comparison
-
-Review sentiment overview (text-based)
-
-🔹 Interactivity
-
-Dynamic filters (Time, Category, Seller, Buyer)
-
-Cross-filtering between charts
-
-Drill-down by date and category
-
-Responsive KPI updates
-
-🛠️ Tools & Technologies
-
-Data Modeling: MySQL Workbench
-
-Visualization: QlikView
-
-Design Approach: Dimensional Modeling (Star Schema)
+## ✅ Conclusion
+This project showcases the complete lifecycle of a BI solution—from **data modeling** to **interactive analytics dashboards**—highlighting how structured data design enables meaningful business insights in service marketplace platforms.
